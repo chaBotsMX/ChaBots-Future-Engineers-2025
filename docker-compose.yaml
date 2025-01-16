@@ -1,0 +1,15 @@
+version: '3'
+services:
+  ros2:
+    build: .
+    volumes:
+      - ./src:/ros2_ws/src
+    network_mode: host
+    environment:
+      - DISPLAY=${DISPLAY}
+    privileged: true  # Necesario para acceso a hardware en Raspberry Pi
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0  # Para el RPLidar
+    # Para desarrollo interactivo
+    stdin_open: true
+    tty: true
