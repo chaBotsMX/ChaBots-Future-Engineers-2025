@@ -10,10 +10,6 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Clonar rplidar_ros
-WORKDIR /ros2_ws/src
-RUN git clone -b ros2 https://github.com/Slamtec/rplidar_ros.git
-
 # Crear el workspace
 WORKDIR /ros2_ws
 RUN mkdir -p /ros2_ws/src
